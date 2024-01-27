@@ -5,14 +5,12 @@ const showMoreButton = document.querySelector(".showMore");
 const input = document.querySelector("input");
 let inputData = "";
 let page = 1;
-
 async function searchImages() {
   inputData = input.value;
   const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`; // Fix the URL by adding '&' before 'client_id'
   const response = await fetch(url);
   const data = await response.json();
   const results = data.results;
-
   if (page === 1) {
     searchResults.innerHTML = "";
   }
